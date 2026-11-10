@@ -1,11 +1,10 @@
 const Router = require("express").Router;
 const router = new Router();
+const deviceController = require("../controllers/deviceController");
 
-router.post("/", (req, res) => res.json({ message: "create" }));
-router.get("/", (req, res) => res.json({ message: "get all" }));
-router.get("/:id", (req, res) =>
-  res.json({ message: "get one", id: req.params.id }),
-);
-router.delete("/", (req, res) => res.json({ message: "delete" }));
+router.post("/", deviceController.create);
+router.get("/", deviceController.getAll);
+router.get("/:id", deviceController.getOne);
+router.delete("/", deviceController.delete);
 
 module.exports = router;

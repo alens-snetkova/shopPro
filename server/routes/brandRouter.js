@@ -1,8 +1,9 @@
 const Router = require("express").Router;
 const router = new Router();
+const brandController = require("../controllers/brandController");
 
-router.post("/", (req, res) => res.json({ message: "create" }));
-router.get("/", (req, res) => res.json({ message: "get all" }));
-router.delete("/", (req, res) => res.json({ message: "delete" }));
+router.post("/", brandController.create);
+router.get("/", brandController.getAll);
+router.delete("/", brandController.delete);
 
 module.exports = router;

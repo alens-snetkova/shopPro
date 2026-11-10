@@ -5,4 +5,4 @@ class DeviceController {
   async delete(req, res) {}
 }
 
-module.exports = new TypeController();
+module.exports = new DeviceController();

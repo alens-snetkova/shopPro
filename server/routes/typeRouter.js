@@ -1,8 +1,9 @@
 const Router = require("express").Router;
 const router = new Router();
+const typeController = require("../controllers/typeController");
 
-router.post("/", (req, res) => res.json({ message: "create" }));
-router.get("/", (req, res) => res.json({ message: "get all" }));
-router.delete("/", (req, res) => res.json({ message: "delete" }));
+router.post("/", typeController.create);
+router.get("/", typeController.getAll);
+router.delete("/", typeController.delete);
 
 module.exports = router;
