@@ -12,7 +12,15 @@ class UserController {
       next(ApiError.internal(e.message));
     }
   }
-  async delete(req, res) {}
+  async delete(req, res) {
+    const { id } = req.params;
+    const user = await User.findByPk(id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    await user.destroy();
+    return res.json({ message: "User deleted" });
+  }
 }
 
 module.exports = new UserController();
